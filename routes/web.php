@@ -20,10 +20,14 @@ Route::get('/about',[PagesController::class,'about']);
 Route::get('/services',[PagesController::class,'services']);
 
 
+
 // Route::get('/users/{id}', function ($id) {
 //     return 'This is user '.$id;
 // });
 // Auth::routes();
+
+Route::post('/posts/image_upload',[PostController::class,'upload'])->name('upload');
+
 Route::resource('posts', 'PostController');
 Route::get('/posts',[PostController::class,'index']);
 // Route::post('/posts',[PostController::class,'store']);

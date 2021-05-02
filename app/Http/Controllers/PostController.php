@@ -15,8 +15,8 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts=Post::orderBy('title','desc')->get();
-        return view('posts.index')->with("posts",$posts);
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        return view('posts.index')->with("posts", $posts);
     }
 
     /**
@@ -40,11 +40,18 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,[
-                'title'=>'required',
-                'body'=>'required',
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
         ]);
-        return 123;
+        // return 123;
+
+        $post = new Post;
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        return redirect('/posts')->with('success', 'Post Created');
     }
 
     /**
@@ -56,8 +63,8 @@ class PostController extends Controller
     public function show($id)
     {
         //
-        $post= Post::find($id);
-        return view('posts.show')->with('post',$post);
+        $post = Post::find($id);
+        return view('posts.show')->with('post', $post);
     }
 
     /**
@@ -69,6 +76,8 @@ class PostController extends Controller
     public function edit($id)
     {
         //
+        $post = Post::find($id);
+        return view('posts.edit')->with('post', $post);
     }
 
     /**
@@ -81,6 +90,19 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+        ]);
+        // return 123;
+
+        $post = Post::find($id);
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        return redirect('/posts')->with('success', 'Post Update');
     }
 
     /**
@@ -92,5 +114,37 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        $post = Post::find($id);
+        $post->delete();
+        return redirect('/posts')->with('success','Post delete');
+    }
+
+    public function upload(Request $request)
+    {
+        if ($request->hasFile('upload')) {
+            //get filename with extension
+            $filenamewithextension = $request->file('upload')->getClientOriginalName();
+
+            //get filename without extension
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+
+            //get file extension
+            $extension = $request->file('upload')->getClientOriginalExtension();
+
+            //filename to store
+            $filenametostore = $filename . '_' . time() . '.' . $extension;
+
+            //Upload File
+            $request->file('upload')->storeAs('public/uploads', $filenametostore);
+
+            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+            $url = asset('storage/uploads/' . $filenametostore);
+            $msg = 'Image successfully uploaded';
+            $re = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
+
+            // Render HTML output
+            @header('Content-type: text/html; charset=utf-8');
+            echo $re;
+        }
     }
 }
