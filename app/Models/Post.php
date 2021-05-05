@@ -16,4 +16,8 @@ class Post extends Model
 
     // TimeStemp
     public $timestemps=true;
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

@@ -14,9 +14,9 @@
     {{Form::label('body', 'Body')}}
     {{Form::textarea('body', $post->body, ['id' => 'summary-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text'])}}
 </div>
-{{-- <div class="form-group">
+<div class="form-group">
     {{Form::file('cover_image')}}
-</div> --}}
+</div>
 {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
 {!! Form::close() !!}
 

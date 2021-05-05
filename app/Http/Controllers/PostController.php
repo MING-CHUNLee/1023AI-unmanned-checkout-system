@@ -1,12 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
 class PostController extends Controller
 {
+      /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -43,12 +53,31 @@ class PostController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
+            'cover_image'=>'image|nullable|max:1999'
         ]);
+        // Handle File Upload
+        if($request->hasFile('cover_image')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('cover_image')->storeAs('public/cover_images/', $fileNameToStore);
+		
+        } else {
+            $fileNameToStore = 'imageno.png';
+        }
         // return 123;
 
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->user_id =auth()->user()->id;
+        $post->cover_image =$fileNameToStore;
         $post->save();
 
         return redirect('/posts')->with('success', 'Post Created');
@@ -96,14 +125,43 @@ class PostController extends Controller
             'body' => 'required',
         ]);
         // return 123;
+     // Handle File Upload
 
         $post = Post::find($id);
+                 // Handle File Upload
+                 if($request->hasFile('cover_image')){
+                    // Get filename with the extension
+                    $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+                    // Get just filename
+                    $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                    // Get just ext
+                    $extension = $request->file('cover_image')->getClientOriginalExtension();
+                    // Filename to store
+                    $fileNameToStore= $filename.'_'.time().'.'.$extension;
+                    // Upload Image
+                    $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+                    // Delete file if exists
+                    // Storage::delete('public/cover_images/'.$post->cover_image);
+                
+            //    //Make thumbnails
+            //     $thumbStore = 'thumb.'.$filename.'_'.time().'.'.$extension;
+            //         $thumb = Image::make($request->file('cover_image')->getRealPath());
+            //         $thumb->resize(80, 80);
+            //         $thumb->save('storage/cover_images/'.$thumbStore);
+                
+                }
+
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        if($request->hasFile('cover_image')){
+            $post->cover_image = $fileNameToStore;
+        
+    }
         $post->save();
 
         return redirect('/posts')->with('success', 'Post Update');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -116,6 +174,10 @@ class PostController extends Controller
         //
         $post = Post::find($id);
         $post->delete();
+        if($post->cover_image != 'imageno.png'){
+            // Delete Image
+            Storage::delete('public/cover_images/'.$post->cover_image);
+        }
         return redirect('/posts')->with('success','Post delete');
     }
 
@@ -146,5 +208,7 @@ class PostController extends Controller
             @header('Content-type: text/html; charset=utf-8');
             echo $re;
         }
-    }
+
+    
+}
 }

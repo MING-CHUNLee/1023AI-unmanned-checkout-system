@@ -1,8 +1,9 @@
 <?php
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,4 +34,7 @@ Route::get('/posts',[PostController::class,'index']);
 // Route::post('/posts',[PostController::class,'store']);
 Route::get('/posts/create',[PostController::class,'create']);
 Route::get('/posts/{id}',[PostController::class,'show']);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [DashboardController::class, 'index']);

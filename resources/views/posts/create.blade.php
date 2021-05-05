@@ -17,6 +17,11 @@
 {{-- <div class="form-group">
     {{Form::file('cover_image')}}
 </div> --}}
+
+<div class="from-group">
+    {{Form::file('cover_image')}}
+     </div>
+     <br>
 {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
 {!! Form::close() !!}
 

@@ -5,7 +5,9 @@
 
 <div class="container m-2">
 <h3>{{$post->title}}</h3>
-<small>Written on {{$post->created_at}}</small>
+
+<small>Written on {{$post->created_at}}by {{$post->user->name}}</small>
+<img  style="width:100%" src="/storage/cover_images/{{$post->cover_image}}">
 <div>
     
     <br>
