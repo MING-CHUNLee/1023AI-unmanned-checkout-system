@@ -18,7 +18,8 @@
 <hr>
 <div class="container">
     <div class="row">
-    <div class="col-4"><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></div>
+    <div class="col-4">
+    <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></div>
     <div class="col-4">{!! Form::open(['method' => 'DELETE','action' => ['PostController@destroy',$post->id], 'class' => 'pull-right']) !!}
         {{Form ::submit('Delete',['class' => 'btn btn-danger'])}}
         {!!Form::close() !!}</div>   

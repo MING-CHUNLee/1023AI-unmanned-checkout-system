@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Post;
-
+use Illuminate\Support\Facades\DB;
 class PostController extends Controller
 {
+    private $table1='posts';
       /**
      * Create a new controller instance.
      *
@@ -37,7 +38,6 @@ class PostController extends Controller
     public function create()
     {
         //
-
         return view('posts.create');
     }
 
@@ -76,6 +76,7 @@ class PostController extends Controller
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        // 取得使用者的ID
         $post->user_id =auth()->user()->id;
         $post->cover_image =$fileNameToStore;
         $post->save();
