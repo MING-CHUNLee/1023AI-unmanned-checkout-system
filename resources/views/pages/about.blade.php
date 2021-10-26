@@ -3,7 +3,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
-<h1 class="mt-4">Dashboard</h1>
+
 
 <div class="row">
     <div class="col-xl-6 col-md-12">
@@ -76,6 +76,20 @@
         </thead>
         <tbody>
             <tr>
+                <th scope="row">2021-10-24 12:00:22(GMT+08.00)</th>
+                <td>237458916</td>
+                <td>90</td>
+                <td>成功</td>
+            
+            </tr>
+            <tr>
+                <th scope="row">2021-10-24 11:40:24(GMT+08.00)</th>
+                <td>237458916</td>
+                <td>90</td>
+                <td>成功</td>
+            
+            </tr>
+            <tr>
             <th scope="row">2021-10-23 12:08:54(GMT+08.00)</th>
             <td>789456123</td>
             <td>180</td>
@@ -95,6 +109,7 @@
                 <td>成功</td>
             
             </tr>
+
           </tbody>
       </table>
 
@@ -145,23 +160,23 @@ const data2 = {
 
 const data3 = {
   labels: [
-    'January',
-    'February',
-    'March',
-    'April'
+    '六月',
+    '七月',
+    '八月',
+    '九月'
   ],
   datasets: [{
     type: 'bar',
     label: 'Bar Dataset',
     data: [100, 70, 30, 40],
-    borderColor: 'rgb(255, 99, 132)',
-    backgroundColor: 'rgba(255, 99, 132, 0.2)'
+    borderColor: 'rgba(255, 159, 64, 0.3)',
+    backgroundColor: 'rgba(255, 159, 64, 0.3)'
   }, {
     type: 'line',
     label: 'Line Dataset',
-    data: [50, 50, 50, 50],
+    data: [90, 45, 20,15],
     fill: false,
-    borderColor: 'rgb(54, 162, 235)'
+    borderColor: 'rgba(75, 192, 192, 1)'
   }]
 };
 

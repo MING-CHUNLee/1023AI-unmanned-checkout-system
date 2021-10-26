@@ -101,6 +101,116 @@
             </button>
                <input type="submit" value="🗑️" class="btn btn-outline-danger pull-right"></td>
         </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td>三杯麵腸</td>
+          <td>40</td>
+          <td >15</td>
+          <td>      
+              <button type="button" class="btn btn-outline-info pull-right ls3 ">
+            🖊️
+            </button>
+               <input type="submit" value="🗑️" class="btn btn-outline-danger pull-right"></td>
+        </tr>
+        <tr>
+          <th scope="row">5</th>
+          <td>三色豆</td>
+          <td>45</td>
+          <td >10</td>
+          <td>      
+              <button type="button" class="btn btn-outline-info pull-right ls3 ">
+            🖊️
+            </button>
+               <input type="submit" value="🗑️" class="btn btn-outline-danger pull-right"></td>
+        </tr>
+        <tr>
+          <th scope="row">6</th>
+          <td>京醬肉絲</td>
+          <td>50</td>
+          <td >30</td>
+          <td>      
+              <button type="button" class="btn btn-outline-info pull-right ls3 ">
+            🖊️
+            </button>
+               <input type="submit" value="🗑️" class="btn btn-outline-danger pull-right"></td>
+        </tr>
+        <tr>
+          <th scope="row">7</th>
+          <td>咖哩</td>
+          <td>50</td>
+          <td >15</td>
+          <td>      
+              <button type="button" class="btn btn-outline-info pull-right ls3 ">
+            🖊️
+            </button>
+               <input type="submit" value="🗑️" class="btn btn-outline-danger pull-right"></td>
+        </tr>
+        <tr>
+          <th scope="row">8</th>
+          <td>四季豆</td>
+          <td>35</td>
+          <td >15</td>
+          <td>      
+              <button type="button" class="btn btn-outline-info pull-right ls3 ">
+            🖊️
+            </button>
+               <input type="submit" value="🗑️" class="btn btn-outline-danger pull-right"></td>
+        </tr>
+        <tr>
+          <th scope="row">9</th>
+          <td>洋蔥炒蛋</td>
+          <td>50</td>
+          <td >20</td>
+          <td>      
+              <button type="button" class="btn btn-outline-info pull-right ls3 ">
+            🖊️
+            </button>
+               <input type="submit" value="🗑️" class="btn btn-outline-danger pull-right"></td>
+        </tr>
+        <tr>
+          <th scope="row">10</th>
+          <td>清炒絲瓜</td>
+          <td>60</td>
+          <td >15</td>
+          <td>      
+              <button type="button" class="btn btn-outline-info pull-right ls3 ">
+            🖊️
+            </button>
+               <input type="submit" value="🗑️" class="btn btn-outline-danger pull-right"></td>
+        </tr>
+        <tr>
+          <th scope="row">11</th>
+          <td>炒油菜</td>
+          <td>30</td>
+          <td >10</td>
+          <td>      
+              <button type="button" class="btn btn-outline-info pull-right ls3 ">
+            🖊️
+            </button>
+               <input type="submit" value="🗑️" class="btn btn-outline-danger pull-right"></td>
+        </tr>
+        <tr>
+          <th scope="row">12</th>
+          <td>炒空心菜</td>
+          <td>25</td>
+          <td >15</td>
+          <td>      
+              <button type="button" class="btn btn-outline-info pull-right ls3 ">
+            🖊️
+            </button>
+               <input type="submit" value="🗑️" class="btn btn-outline-danger pull-right"></td>
+        </tr>
+        <tr>
+          <th scope="row">13</th>
+          <td>紅燒茄子</td>
+          <td>55</td>
+          <td >15</td>
+          <td>      
+              <button type="button" class="btn btn-outline-info pull-right ls3 ">
+            🖊️
+            </button>
+               <input type="submit" value="🗑️" class="btn btn-outline-danger pull-right"></td>
+        </tr>
       </tbody>
   </table>
 

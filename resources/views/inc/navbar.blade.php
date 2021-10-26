@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+          結帳系統
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -12,29 +12,20 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">主頁<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/about">about</a>
+                <a class="nav-link" href="/about">分析板</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="/services">services</a>
+                  <a class="nav-link" href="/services">菜色</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/posts">Blog</a>
-            </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li>
+           
+     
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
+            {{-- <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <a class="nav-link" href="/home">Dashboard</a>
             </li>
@@ -70,7 +61,7 @@
                         </div>
                     </li>
                 @endguest
-            </ul>
+            </ul> --}}
         </div>
     </div>
 </nav>
